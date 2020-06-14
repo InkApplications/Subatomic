@@ -5,4 +5,8 @@ package subatomic
  */
 actual class AtomicReference<T> actual constructor(initial: T) {
     actual var value: T = initial
+
+    actual fun lazySet(newValue: T) {
+        value = newValue
+    }
 }

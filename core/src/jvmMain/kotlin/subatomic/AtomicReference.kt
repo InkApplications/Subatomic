@@ -11,4 +11,8 @@ actual class AtomicReference<T> actual constructor(initial: T) {
     actual var value: T
         get() = backingReference.get()
         set(newValue) { backingReference.set(newValue) }
+
+    actual fun lazySet(newValue: T) {
+        backingReference.lazySet(newValue)
+    }
 }
