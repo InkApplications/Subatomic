@@ -9,4 +9,12 @@ actual class AtomicReference<T> actual constructor(initial: T) {
     actual fun lazySet(newValue: T) {
         value = newValue
     }
+
+    actual fun compareAndSet(expected: T, newValue: T): Boolean = when (value) {
+        expected -> {
+            value = newValue
+            true
+        }
+        else -> false
+    }
 }

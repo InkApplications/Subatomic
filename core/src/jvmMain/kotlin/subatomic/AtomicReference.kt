@@ -15,4 +15,8 @@ actual class AtomicReference<T> actual constructor(initial: T) {
     actual fun lazySet(newValue: T) {
         backingReference.lazySet(newValue)
     }
+
+    actual fun compareAndSet(expected: T, newValue: T): Boolean {
+        return backingReference.compareAndSet(expected, newValue)
+    }
 }
