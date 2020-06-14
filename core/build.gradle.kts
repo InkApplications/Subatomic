@@ -19,5 +19,11 @@ kotlin {
                 implementation(kotlin("stdlib-jdk8"))
             }
         }
+
+        val jsMain by getting {
+            dependencies {
+                implementation(kotlin("stdlib-js"))
+            }
+        }
     }
 }

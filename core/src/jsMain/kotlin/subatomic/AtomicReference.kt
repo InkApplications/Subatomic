@@ -11,10 +11,15 @@ actual class AtomicReference<T> actual constructor(initial: T) {
     }
 
     actual fun compareAndSet(expected: T, newValue: T): Boolean = when (value) {
-        expected -> {
+        expected -> true.also {
             value = newValue
-            true
         }
         else -> false
+    }
+
+    actual fun getAndSet(newValue: T): T {
+        return value.also {
+            value = newValue
+        }
     }
 }

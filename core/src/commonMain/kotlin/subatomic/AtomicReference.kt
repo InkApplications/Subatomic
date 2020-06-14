@@ -20,4 +20,11 @@ expect class AtomicReference<T>(initial: T) {
      * @return Whether the value matched as expected.
      */
     fun compareAndSet(expected: T, newValue: T): Boolean
+
+    /**
+     * Set the value and get the old value
+     *
+     * @return the previous value before updating.
+     */
+    fun getAndSet(newValue: T): T
 }

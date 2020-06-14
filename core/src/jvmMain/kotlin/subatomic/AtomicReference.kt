@@ -19,4 +19,8 @@ actual class AtomicReference<T> actual constructor(initial: T) {
     actual fun compareAndSet(expected: T, newValue: T): Boolean {
         return backingReference.compareAndSet(expected, newValue)
     }
+
+    actual fun getAndSet(newValue: T): T {
+        return backingReference.getAndSet(newValue)
+    }
 }
