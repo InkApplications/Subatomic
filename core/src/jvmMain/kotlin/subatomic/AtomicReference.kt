@@ -23,4 +23,8 @@ actual class AtomicReference<T> actual constructor(initial: T) {
     actual fun getAndSet(newValue: T): T {
         return backingReference.getAndSet(newValue)
     }
+
+    actual fun update(update: (T) -> T) {
+        backingReference.getAndUpdate { update(it) }
+    }
 }

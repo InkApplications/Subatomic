@@ -27,4 +27,9 @@ expect class AtomicReference<T>(initial: T) {
      * @return the previous value before updating.
      */
     fun getAndSet(newValue: T): T
+
+    /**
+     * Update the value based on its previous value.
+     */
+    fun update(update: (T) -> T)
 }

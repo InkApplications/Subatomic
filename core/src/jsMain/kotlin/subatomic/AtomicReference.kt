@@ -22,4 +22,8 @@ actual class AtomicReference<T> actual constructor(initial: T) {
             value = newValue
         }
     }
+
+    actual fun update(update: (T) -> T) {
+        value = update(value)
+    }
 }
