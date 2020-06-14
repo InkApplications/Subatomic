@@ -26,4 +26,10 @@ actual class AtomicReference<T> actual constructor(initial: T) {
     actual fun update(update: (T) -> T) {
         value = update(value)
     }
+
+    actual fun getAndUpdate(update: (T) -> T): T {
+        return value.also {
+            value = update(it)
+        }
+    }
 }
