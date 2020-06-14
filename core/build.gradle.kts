@@ -5,6 +5,7 @@ plugins {
 
 kotlin {
     jvm()
+    js()
 
     sourceSets {
         val commonMain by getting {
