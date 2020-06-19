@@ -25,18 +25,14 @@ actual open class AtomicReference<T> actual constructor(initial: T) {
     }
 
     actual fun update(update: (T) -> T) {
-        backingReference.getAndUpdate { update(it) }
+        backingReference.getAndUpdate(update)
     }
 
     actual fun getAndUpdate(update: (T) -> T): T {
-        return backingReference.getAndUpdate {
-            update(it)
-        }
+        return backingReference.getAndUpdate(update)
     }
 
     actual fun updateAndGet(update: (T) -> T): T {
-        return backingReference.updateAndGet {
-            update(it)
-        }
+        return backingReference.updateAndGet(update)
     }
 }
