@@ -3,7 +3,7 @@ package subatomic
 /**
  * Atomic operations for a contained reference.
  */
-expect open class AtomicReference<T>(initial: T) {
+expect open class Atomic<T>(initial: T) {
     /**
      * Volatile read/write access to the contained reference.
      */

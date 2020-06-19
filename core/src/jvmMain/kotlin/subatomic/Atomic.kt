@@ -5,7 +5,7 @@ import java.util.concurrent.atomic.AtomicReference as JavaAtomicReference
 /**
  * Atomic operations backed by the JVM's Atomic Reference class.
  */
-actual open class AtomicReference<T> actual constructor(initial: T) {
+actual open class Atomic<T> actual constructor(initial: T) {
     private val backingReference = JavaAtomicReference(initial)
 
     actual var value: T
