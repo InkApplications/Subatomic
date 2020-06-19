@@ -3,7 +3,7 @@ package subatomic
 /**
  * Plain value implementation of atomic operations.
  */
-actual class AtomicReference<T> actual constructor(initial: T) {
+actual open class AtomicReference<T> actual constructor(initial: T) {
     actual var value: T = initial
 
     actual fun lazySet(newValue: T) {
