@@ -2,19 +2,19 @@ import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 
 buildscript {
     repositories {
-        jcenter()
+        mavenCentral()
     }
     dependencies {
-        classpath(kotlin("gradle-plugin", version = "1.3.72"))
+        classpath(kotlin("gradle-plugin", version = "1.5.0"))
     }
 }
 
 subprojects {
-    group = "com.github.inkapplications.subatomic"
-    version = if (version != "unspecified") version else "1.0-SNAPSHOT"
+    group = "com.inkapplications.subatomic"
+    version = if (version != "unspecified") version else "1.1-SNAPSHOT"
 
     repositories {
-        jcenter()
+        mavenCentral()
     }
     tasks.withType(Test::class) {
         testLogging.exceptionFormat = TestExceptionFormat.FULL

@@ -6,25 +6,40 @@ plugins {
 
 kotlin {
     jvm()
-    js()
+    js {
+        nodejs()
+        browser()
+    }
+    linuxArm64()
+    linuxArm32Hfp()
+    linuxMips32()
+    linuxX64()
+    mingwX64()
+    macosX64()
 
     sourceSets {
-        val commonMain by getting {
-            dependencies {
-                implementation(kotlin("stdlib-common"))
-            }
+        val commonMain by getting
+        val nativeMain by creating {
+            dependsOn(commonMain)
         }
 
-        val jvmMain by getting {
-            dependencies {
-                implementation(kotlin("stdlib-jdk8"))
-            }
+        val linuxArm64Main by getting {
+            dependsOn(nativeMain)
         }
-
-        val jsMain by getting {
-            dependencies {
-                implementation(kotlin("stdlib-js"))
-            }
+        val linuxArm32HfpMain by getting {
+            dependsOn(nativeMain)
+        }
+        val linuxMips32Main by getting {
+            dependsOn(nativeMain)
+        }
+        val linuxX64Main by getting {
+            dependsOn(nativeMain)
+        }
+        val mingwX64Main by getting {
+            dependsOn(nativeMain)
+        }
+        val macosX64Main by getting {
+            dependsOn(nativeMain)
         }
     }
 }
