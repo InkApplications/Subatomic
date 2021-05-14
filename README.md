@@ -3,23 +3,17 @@ Subatomic
 
 Simple Multiplatform implementation of atomic operations for Kotlin.
 
- - Currently supports JVM and JavaScript Platforms.
+ - Supports JVM, JavaScript and Native Platforms.
  - Does not require use of a gradle plugin.
 
 Installation
 ------------
 
-Requires the JitPack repository:
+Published to Maven Central
 
-```kotlin
-repositories {
-    maven(url = "https://jitpack.io")
-}
-```
+### Core Module Coordinates
 
-```kotlin
-compile("com.github.Inkapplications.subatomic:core:+") // Replace with exact version
-```
+`com.inkapplications.subatomic:core`
 
 Usage
 -----
