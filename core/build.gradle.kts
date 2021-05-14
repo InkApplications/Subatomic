@@ -43,3 +43,51 @@ kotlin {
         }
     }
 }
+
+val javadocJar by tasks.registering(Jar::class) {
+    archiveClassifier.set("javadoc")
+}
+
+publishing {
+    group = "com.inkapplications.subatomic"
+    version = when (project.properties["version"]?.toString()) {
+        null, "unspecified", "" -> "1.1-SNAPSHOT"
+        else -> project.properties["version"].toString()
+    }
+    publications {
+        withType<MavenPublication> {
+            artifact(javadocJar.get())
+
+            pom {
+                name.set("Subatomic: ${project.name}")
+                description.set("Simple Multiplatform atomic references.")
+                url.set("https://github.com/inkapplications/subatomic")
+                licenses {
+                    license {
+                        name.set("MIT")
+                        url.set("https://choosealicense.com/licenses/mit/")
+                    }
+                }
+                developers {
+                    developer {
+                        id.set("reneevandervelde")
+                        name.set("Renee Vandervelde")
+                        email.set("Renee@InkApplications.com")
+                    }
+                }
+                scm {
+                    connection.set("scm:git:https://github.com/InkApplications/subatomic.git")
+                    developerConnection.set("scm:git:ssh://git@github.com:InkApplications/subatomic.git")
+                    url.set("https://github.com/InkApplications/subatomic")
+                }
+            }
+        }
+    }
+
+    repositories {
+        maven {
+            name = "Build"
+            url = uri(layout.buildDirectory.dir("repo"))
+        }
+    }
+}
