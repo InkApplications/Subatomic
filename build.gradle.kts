@@ -20,3 +20,8 @@ subprojects {
         testLogging.exceptionFormat = TestExceptionFormat.FULL
     }
 }
+
+tasks.create("zipPublications", Zip::class) {
+    from("core/build/repo/")
+    archiveFileName.set("publications.zip")
+}
